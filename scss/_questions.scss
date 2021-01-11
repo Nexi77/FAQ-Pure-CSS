@@ -1,0 +1,139 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 1.5rem;
+    border-radius: 20px;
+    background-color: white;
+    max-width: 60rem;
+    @include breakpoint-up(large){
+        flex-direction: row;
+    }
+    .images{
+        position: relative;
+        &::after{
+            @include breakpoint-up(large){
+                content: "";
+                background-image: url('/images/illustration-box-desktop.svg');
+                height: 100%;
+                width: 100%;
+                top: 34%;
+                left: -5.8125rem;
+                position: absolute;
+                background-repeat: no-repeat;
+                background-position: left top;
+            }
+        }
+        &__shadow{
+            background-image: url('/images/bg-pattern-mobile.svg');
+            min-height: 6.5625rem;
+            background-repeat: no-repeat;
+            background-position: center top;
+            position: relative;
+            margin-bottom: 2rem;
+            @include breakpoint-up(large){
+                width: 24.6875rem;
+                height: 100%;
+                background-image: url('/images/bg-pattern-desktop.svg');
+                overflow: hidden;
+                background-position: -23.5625rem -13.5rem;
+                background-size: 189%
+            }
+
+            &::before{
+                content: "";
+                background-image: url('/images/illustration-woman-online-mobile.svg');
+                background-position: center top;
+                position: absolute;
+                left: -0.75rem;
+                top: -5.9375rem;
+                height: 180%;
+                width: 100%;
+                background-repeat: no-repeat;
+                @include breakpoint-up(large){
+                    background-image: url('/images/illustration-woman-online-desktop.svg');
+                    background-position: center center;
+                    left: -9.25rem;
+                    top: -0.9375rem;
+                    height: 100%;
+                    width: 150%;
+                }
+            }
+        }
+    }
+    .questions{
+        &__header{
+            font-size: 1.5625rem;
+            font-weight: 700;
+            color: $veryDarkDesaturatedBlue;
+            text-align: center;
+        }
+        @include breakpoint-up(large){
+            padding-top: 4.375rem;
+            &__header{
+                text-align: left;
+                padding-left: 1.4375rem;
+            }
+        }
+    }
+
+    .faq{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__question{
+            max-width: 22.5rem;
+            border-bottom: 1px solid $lightGrayishBlue;
+            &:not(:last-child){
+                margin-bottom: 1.25rem;
+            }
+            &:focus-within > .faq__answer{
+                max-height: 100vh;
+                visibility: visible;
+                padding-bottom: 1.25rem;
+                transition: all 100ms ease-in-out;
+            }
+            &:focus-within .faq__arrow{
+                transform: rotate(180deg);
+                background-position: left center;
+            }
+        }
+
+        &__title{
+            display: flex;
+            padding-bottom: 1.25rem;
+            color: $veryDarkGrayishBlue;
+
+            &:hover{
+                color: $softRed;
+                cursor: pointer;
+            }
+            &:focus{
+                outline: none;
+                color: $veryDarkGrayishBlue;
+                font-weight: 700;
+            }
+        }
+
+        &__text{
+            flex: 5;
+        }
+
+        &__arrow{
+            background-image: url('/images/icon-arrow-down.svg');
+            height: 0.8125rem;
+            flex: 1;
+            background-repeat: no-repeat;
+            background-position: right center;
+            margin-left: 0.75rem;
+            transition: all 200ms ease-in-out;
+        }
+
+        &__answer{
+            max-height: 0px;
+            font-size: $body;
+            overflow: hidden;
+            visibility: hidden;
+        }
+    }
+}
