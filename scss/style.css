@@ -29,6 +29,16 @@ body {
   padding: 2rem 1.4375rem;
 }
 
+.attribution {
+  margin-top: 1.25rem;
+  color: white;
+}
+
+.attribution a {
+  text-decoration: none;
+  color: #1d1e35;
+}
+
 .main {
   display: -webkit-box;
   display: -ms-flexbox;
